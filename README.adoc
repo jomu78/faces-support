@@ -1,6 +1,3 @@
 = faces-support
 
-[![Build Status](https://github.com/jomu78/faces-support/actions/workflows/maven.yml/badge.svg)](https://github.com/jomu78/faces-support/actions/workflows/maven.yml)
-
-
-
+image::https://github.com/jomu78/faces-support/actions/workflows/maven.yml/badge.svg?branch=feature%2Finitial[]
