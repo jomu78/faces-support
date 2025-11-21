@@ -6,16 +6,16 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.4.11</version>
+    <version>3.5.7</version>
     <relativePath/>
     <!-- lookup parent from repository -->
   </parent>
 
   <groupId>de.muehlencord.facessupport</groupId>
-  <artifactId>faces-support-parent</artifactId>
-  <version>1.4.11-SNAPSHOT</version>
+  <artifactId>faces-support</artifactId>
+  <version>1.5.7-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>faces-support-parent</name>
+  <name>faces-support</name>
   <modules>
     <module>faces-support-spring-data-jpa-spring-boot-starter</module>
     <module>faces-support-spring-data-jpa-spring-boot-autoconfigure</module>
@@ -69,12 +69,11 @@
     </sonar.coverage.jacoco.xmlReportPaths>
 
     <!-- dependency versions -->
-    <joinfaces.version>5.4.11</joinfaces.version>
-    <primefaces.version>14.0.14-LTS</primefaces.version>
-    <spring-boot.version>3.4.11</spring-boot.version>
+    <joinfaces.version>5.5.7</joinfaces.version>
+    <spring-boot.version>3.5.7</spring-boot.version>
 
     <!-- overwrite dependencies manged parent -->
-    <!--    <commons-lang3.version>3.18.0</commons-lang3.version>-->
+    <commons-lang3.version>3.18.0</commons-lang3.version>
 
     <!-- plugin versions -->
     <jacoco-maven-plugin.version>0.8.14</jacoco-maven-plugin.version>
@@ -88,14 +87,6 @@
         <version>${joinfaces.version}</version>
         <type>pom</type>
         <scope>import</scope>
-      </dependency>
-
-      <dependency>
-        <groupId>org.primefaces</groupId>
-        <artifactId>primefaces</artifactId>
-        <classifier>jakarta</classifier>
-        <scope>provided</scope>
-        <version>${primefaces.version}</version>
       </dependency>
 
       <dependency>

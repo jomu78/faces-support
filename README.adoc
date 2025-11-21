@@ -1,3 +1,34 @@
 = faces-support
 
-image::https://github.com/jomu78/faces-support/actions/workflows/maven.yml/badge.svg?branch=feature%2Finitial[]
+[cols="3,4a,4a,4a,3", frame=none, grid=none]
+|===
+|
+| image::https://github.com/jomu78/faces-support/actions/workflows/maven.yml/badge.svg?branch=feature%2Finitial[]
+| image::https://maven-badges.herokuapp.com/maven-central/de.muehlencord.facessupport/faces-support-parent/badge.svg[]
+| image::https://img.shields.io/github/license/joinfaces/joinfaces.svg[]
+|
+|===
+
+
+== How to use
+
+== Key Features
+
+== System Requirements
+
+|===
+| faces-support | Java | Joinfaces | SpringBoot | PrimeFaces
+
+| 1.5.x | 21 | 5.5.x | 3.5.x | 15.x
+|===
+
+
+== Getting Help
+
+* Report questions and bugs at https://github.com/jomu78/faces-support/issues
+
+== Contributing
+
+* Report documentation, features, enhancement and bugs at https://github.com/jomu78/faces-support/issues.
+* Pull requests are welcome.
+

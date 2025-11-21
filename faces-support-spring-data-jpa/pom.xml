@@ -5,8 +5,8 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>de.muehlencord.facessupport</groupId>
-    <artifactId>faces-support-parent</artifactId>
-    <version>1.4.11-SNAPSHOT</version>
+    <artifactId>faces-support</artifactId>
+    <version>1.5.7-SNAPSHOT</version>
   </parent>
 
   <artifactId>faces-support-spring-data-jpa</artifactId>
@@ -19,7 +19,6 @@
     <dependency>
       <groupId>org.joinfaces</groupId>
       <artifactId>primefaces-spring-boot-starter</artifactId>
-      <version>${joinfaces.version}</version>
     </dependency>
 
     <dependency>

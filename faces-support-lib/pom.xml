@@ -5,8 +5,8 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>de.muehlencord.facessupport</groupId>
-    <artifactId>faces-support-parent</artifactId>
-    <version>1.4.11-SNAPSHOT</version>
+    <artifactId>faces-support</artifactId>
+    <version>1.5.7-SNAPSHOT</version>
   </parent>
 
   <artifactId>faces-support-lib</artifactId>
