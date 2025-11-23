@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
     <version>3.5.8</version>
-    <relativePath/>
+    <relativePath />
     <!-- lookup parent from repository -->
   </parent>
 
@@ -95,6 +94,13 @@
 
     <!-- plugin versions -->
     <jacoco-maven-plugin.version>0.8.14</jacoco-maven-plugin.version>
+    <maven-javadoc-plugin.version>3.11.3</maven-javadoc-plugin.version>
+    <maven-source-plugin.version>3.3.1</maven-source-plugin.version>
+    <license-maven-plugin.version>2.2.0</license-maven-plugin.version>
+    <maven-gpg-plugin.version>3.1.0</maven-gpg-plugin.version>
+    <central-publishing-maven-plugin.version>0.8.0</central-publishing-maven-plugin.version>
+    <maven-war-plugin.version>3.4.0</maven-war-plugin.version>
+    <maven-release-plugin.version>3.1.1</maven-release-plugin.version>
   </properties>
 
   <dependencyManagement>
@@ -182,19 +188,6 @@
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-source-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>attach-sources</id>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
           <includes>
@@ -234,6 +227,95 @@
           </execution>
         </executions>
       </plugin>
+
+      <!-- automatically create javadoc archive -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- automatically create source archive -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>${maven-source-plugin.version}</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- automatically create file with all licenses used -->
+      <!--
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>license-maven-plugin</artifactId>
+        <version>${license-maven-plugin.version}</version>
+        <executions>
+          <execution>
+            <id>download-licenses</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>download-licenses</goal>
+              <goal>add-third-party</goal>
+            </goals>
+            <configuration>
+              <licensesOutputDirectory>${licenses.dir}</licensesOutputDirectory>
+              <outputDirectory>${licenses.dir}</outputDirectory>
+              <licenseMerges>
+                <licenseMerge>The Apache Software License, Version 2.0|Apache 2|Apache License, Version 2.0|Apache
+                  Public License 2.0
+                </licenseMerge>
+              </licenseMerges>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      -->
+
+      <!-- sign components -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <version>${maven-gpg-plugin.version}</version>
+        <executions>
+          <execution>
+            <id>sign-artifacts</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <keyname>3448E23404383EEA</keyname>
+        </configuration>
+      </plugin>
+
+      <!-- deploy to OSSRH Sonatype -->
+      <plugin>
+        <groupId>org.sonatype.central</groupId>
+        <artifactId>central-publishing-maven-plugin</artifactId>
+        <version>${central-publishing-maven-plugin.version}</version>
+        <extensions>true</extensions>
+        <configuration>
+          <publishingServerId>central</publishingServerId>
+          <autoPublish>true</autoPublish>
+        </configuration>
+      </plugin>
+
 
     </plugins>
   </build>
