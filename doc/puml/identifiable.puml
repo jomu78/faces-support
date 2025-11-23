@@ -1,0 +1,29 @@
+@startuml
+
+interface "IdentifiableObject<T extends Serializable>" as IO {
+  getId: T
+  generateId: void
+}
+
+class "IdentifiableEntity<T extends Serializable>" as IE {
+  isNew: boolean
+  toString: String
+}
+
+
+class IE implements IO
+class IE implements Persistable
+
+abstract class LongIdentifiedObject implements IO
+abstract class IntegerIdentifiedObject implements IO
+abstract class UUIDIdentifiedObject implements IO
+abstract class StringIdentifiedObject implements IO
+
+abstract class LongIdentifiedEntity extends IE
+abstract class IntegerIdentifiedEntity extends IE
+abstract class UUIDIdentifiedEntity extends IE
+abstract class StringIdentifiedEntity extends IE
+
+
+
+@enduml

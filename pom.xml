@@ -24,6 +24,7 @@
     <module>faces-support-coverage</module>
     <module>faces-support-spring-boot-starter</module>
     <module>faces-support-spring-boot-autoconfigure</module>
+    <module>faces-support-demo</module>
   </modules>
 
   <developers>

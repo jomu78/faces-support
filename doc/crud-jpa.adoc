@@ -1,0 +1,85 @@
+= CRUD pages based on spring-data-jpa
+
+For typical CRUD pages with e.g. a datatable and the possibility to **C**reate, **R**ead, **U**pdate and
+**D**elete the given entity, the _AbstractStandardView_ offers the base for an easy implementation.
+
+To implement the required backing bean for your faces page, all you need to do is to implement based
+on _AbstractStandardView_.
+
+[source,java]
+----
+public class PersonView extends AbstractStandardView<Person, Long, PersonRepository> {
+
+  public PersonView(SessionView sessionView, PersonRepository repository) {
+    super("person", sessionView, new LongSpringLazyDataModel<>(repository), Person.class);
+  }
+}
+----
+
+This brings you all methods for the .xhtml page you need for crud pages
+
+The following variables are available and accessible via getter/setter methods
+|===
+|Variable | Description
+
+| selectedElement | the element currently selected in a datatable
+| editElement | the element selected for editing
+| dataModel | the underlying lazy dataModel
+| sortBy | the list of SortMeta
+|===
+
+
+|===
+|Method | Description
+
+| startAdd() | called before you add a new entity, e.g. for a button, which opens the edit dialog
+| startEdit() | called after you selected an element e.g. from a datatable and press a button to edit the entity
+| saveEdit() | save the currently edited entity (complete startAdd or startEdit)
+| cancelEdit() | cancel the edit for the currently edited entity. Either rollback to the current version (startEdit)
+or rollback the new entity (startAdd)
+| delete() | delete the currently selected entity
+| isNewEdit() | return true, if edit has been started by startAdd
+| canEdit() | return true, if the current use can edit the entity because use has required change role
+| requiredChangeRole() | returns the required change role, needs to be overwritten. By default, method returns null
+which means edit is allowed
+
+|===
+
+AbstractStandardView takes 3 generics as parameter
+
+* T extends IdentifiableEntity<I>
+* I extends Serializable,
+* R extends JpaRepository<T, I> & JpaSpecificationExecutor<T>>
+
+I is the primary key of the entity of the table.
+
+[source, java]
+----
+public class Person extends LongIdentifiedEntity implements Serializable {
+
+  private String firstName;
+  private String lastName;
+}
+----
+
+LongIdentifiedEntity extends IdentifiableEntity<Long>
+
+[source, java]
+----
+public class LongIdentifiedEntity extends IdentifiableEntity<Long> implements Serializable {
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Basic(optional = false)
+  protected Long id;
+----
+
+There are implementations for Integer, UUID and String available. You can create your own implementation if required.
+
+The 3rd generic is the Spring Data Jpa repository able to read the entity from the database.
+
+[source, java]
+----
+public interface PersonRepository extends JpaRepositoryImplementation<Person, Long> {
+}
+----

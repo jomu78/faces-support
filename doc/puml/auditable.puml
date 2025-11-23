@@ -1,0 +1,28 @@
+@startuml
+
+interface Audit {
+  getValidFrom: LocalDateTime
+  setValidFrom(LocalDateTime): void
+  getValidTo: LocalDateTime
+  setValidTo(LocalDateTime): void
+  getCreatedOn: LocalDateTime
+  setCreateOn(LocalDateTime): void
+  getCreatedBy: LocalDateTime
+  setCreatedBy(LocalDateTime): void
+  getUpdatedOn: LocalDateTime
+  setUpdatedOn(LocalDateTime): void
+  getUpdatedBy: LocalDateTime
+  setUpdatedBy(LocalDateTime): void
+}
+
+class AuditEntity implements Audit {
+  validFrom: LocalDateTime
+  validTo: LocalDateTime
+  createdOn: LocalDateTime
+  createdBy: String
+  updatedOn: LocalDateTime
+  updatedBy: String
+
+}
+
+@enduml
