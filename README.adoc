@@ -1,0 +1,44 @@
+= faces-support
+
+[cols="3,4a,4a,4a,3", frame=none, grid=none]
+|===
+|
+| image::https://github.com/jomu78/faces-support/actions/workflows/maven.yml/badge.svg?branch=feature%2Finitial[]
+| image::https://maven-badges.herokuapp.com/maven-central/de.muehlencord.facessupport/faces-support/badge.svg[]
+| image::https://img.shields.io/badge/License-Apache_2.0-success[]
+|
+|===
+
+
+== How to use
+
+== Key Features
+
+|===
+| Description | dependency
+
+| various link:doc/utils.adoc[utilities] | faces-support-lib
+| handling of link:doc/identifiable.adoc[identifiable] objects | faces-support-lib
+| handling of link:doc/audit.adoc[auditable] objects | faces-support-lib
+| utilities for link:doc/crud.adoc[CRUD] pages | faces-support-spring-boot-starter
+| utilities for link:doc/crud-jpa.adoc[CRUD] pages based on spring-data-jpa repositories | faces-support-spring-data-jpa-spring-boot-starter
+|===
+
+== System Requirements
+
+|===
+| faces-support | Java | Joinfaces | SpringBoot | PrimeFaces
+
+| 1.5.x | 21 | 5.5.x | 3.5.x | 15.x
+|===
+
+
+== Getting Help
+
+* Report questions and bugs at https://github.com/jomu78/faces-support/issues
+
+== Contributing
+
+* Report documentation, features, enhancement and bugs at https://github.com/jomu78/faces-support/issues.
+* Pull requests are welcome.
+
