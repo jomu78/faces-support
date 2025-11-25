@@ -10,6 +10,7 @@
   </parent>
 
   <artifactId>faces-support-spring-data-jpa</artifactId>
+  <name>faces-support-spring-data-jpa</name>
 
   <dependencies>
     <dependency>

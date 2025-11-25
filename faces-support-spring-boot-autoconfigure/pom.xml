@@ -10,6 +10,7 @@
   </parent>
 
   <artifactId>faces-support-spring-boot-autoconfigure</artifactId>
+  <name>faces-support-spring-boot-autoconfigure</name>
 
   <dependencies>
     <dependency>

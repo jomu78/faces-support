@@ -10,6 +10,7 @@
   </parent>
 
   <artifactId>faces-support-coverage</artifactId>
+  <name>faces-support-coverage</name>
 
   <dependencies>
     <dependency>
@@ -40,6 +41,14 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.sonatype.central</groupId>
+        <artifactId>central-publishing-maven-plugin</artifactId>
+        <configuration>
+          <skipPublishing>true</skipPublishing>
+        </configuration>
       </plugin>
     </plugins>
   </build>

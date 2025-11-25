@@ -10,6 +10,7 @@
   </parent>
 
   <artifactId>faces-support-lib</artifactId>
+  <name>faces-support-lib</name>
 
 
   <dependencies>
