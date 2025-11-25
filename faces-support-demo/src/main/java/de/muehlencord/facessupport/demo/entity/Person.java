@@ -18,6 +18,14 @@ import java.io.Serializable;
 @Setter
 public class Person extends LongIdentifiedEntity implements Serializable {
 
+
+  /**
+   * person firstName
+   */
   private String firstName;
+
+  /**
+   * person lastName
+   */
   private String lastName;
 }

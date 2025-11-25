@@ -28,8 +28,16 @@ import java.util.Map;
  */
 public class EmailClientValidationConstraint { // {implements ClientValidationConstraint {
 
+  /**
+   * the i18n message to return if validation fails
+   */
   public static final String MESSAGE_METADATA = "data-p-email-msg";
 
+  /**
+   * work in progress
+   * @param constraintDescriptor wip
+   * @return wip
+   */
   //  @Override
   public Map<String, Object> getMetadata(ConstraintDescriptor<?> constraintDescriptor) {
     Map<String, Object> metadata = new HashMap<>();
@@ -42,6 +50,10 @@ public class EmailClientValidationConstraint { // {implements ClientValidationCo
     return metadata;
   }
 
+  /**
+   * returns the validator id
+   * @return the validator id
+   */
   //    @Override
   public String getValidatorId() {
     return Email.class.getSimpleName();

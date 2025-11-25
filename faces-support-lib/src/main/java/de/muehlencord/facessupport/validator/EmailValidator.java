@@ -27,8 +27,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- *
+ * FacesValidator for email addresses .
  * @author Joern Muehlencord (joern@muehlencord.de)
+ * @since 0.1.0
  */
 @FacesValidator("de.muehlencord.shared.jeeutil.validator.EmailValidator")
 public class EmailValidator implements Validator<String> {
@@ -39,9 +40,13 @@ public class EmailValidator implements Validator<String> {
 
   private final Pattern pattern;
 
+  /**
+   * create a new instance of  the emailValidator using the default email pattern.
+   */
   public EmailValidator() {
     pattern = Pattern.compile(EMAIL_PATTERN);
   }
+
 
   @Override
   public void validate(FacesContext context, UIComponent component, String value) throws ValidatorException {
@@ -54,6 +59,11 @@ public class EmailValidator implements Validator<String> {
     }
   }
 
+  /**
+   * returns true, if the given email address is valid.
+   * @param emailAddress the address to validate.
+   * @return true, if the given email address is valid, false otherwise.
+   */
   public boolean isValid(String emailAddress) {
     Matcher matcher = pattern.matcher(emailAddress);
     return matcher.matches();

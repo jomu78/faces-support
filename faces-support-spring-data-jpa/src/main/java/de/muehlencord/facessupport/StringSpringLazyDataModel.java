@@ -23,6 +23,8 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 /**
  * lazy data model bound to spring data jpa for entities with String based ids.
+ * @param <T> the entity to support. It must use a String as ID field.
+ * @param <R> the repository to use.
  *
  * @author Joern Muehlencord, 2025-08-17
  * @since 1.5.0
@@ -32,6 +34,11 @@ public class StringSpringLazyDataModel<
   R extends JpaRepository<T, String> & JpaSpecificationExecutor<T>>
   extends ExtendedSpringDataJpaLazyDataModel<T, String, R> {
 
+  /**
+   * creates a new instance of data model, which supports entities with String as IDs.
+   *
+   * @param repository the repository to use,
+   */
   public StringSpringLazyDataModel(R repository) {
     super(repository);
   }

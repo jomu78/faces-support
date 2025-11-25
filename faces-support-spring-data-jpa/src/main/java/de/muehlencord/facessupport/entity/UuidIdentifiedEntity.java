@@ -41,12 +41,18 @@ import java.util.UUID;
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public abstract class UuidIdentifiedEntity extends IdentifiableEntity<UUID> {
 
+  /**
+   * the id of the entity
+   */
   @Id
   @Basic(optional = false)
   @NotNull
   @Column(name = "id")
   protected UUID id;
 
+  /**
+   * generate the id based on {@link UUID#randomUUID()}.
+   */
   @Override
   public void generateId() {
     if (id == null) {

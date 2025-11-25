@@ -25,6 +25,7 @@ import java.io.Serializable;
 
 /**
  * base class entity, identified by field id which is of type T.
+ * @param <T>  the domain type the ID.
  *
  * @author Joern Muehlencord, 2025-08-17
  * @since 0.1.0
@@ -33,11 +34,28 @@ import java.io.Serializable;
 public abstract class IdentifiableEntity <T extends Serializable>
   implements Serializable, IdentifiableObject<T>, Persistable<T> {
 
+  /**
+   * new instance of an identifiable entity.
+   */
+  protected IdentifiableEntity() {
+    // construct a new instance
+  }
+
+  /**
+   * returns true, if the id is null and therefor edit has been called on a new entity.
+   *
+   * @return true if is a new entity, false otherwise.
+   */
   @Override
   public boolean isNew() {
     return getId() == null;
   }
 
+  /**
+   * string representation of the entity
+   *
+   * @return string representation of the entity
+   */
   @Override
   public String toString() {
     return String.format("%s[id=%s]", getClass().getSimpleName(), getIdString());

@@ -23,6 +23,8 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 /**
  * lazy data model bound to spring data jpa for entities with Long based ids.
+ * @param <T> the entity to support. It must use a Long as ID field.
+ * @param <R> the repository to use.
  *
  * @author Joern Muehlencord, 2025-08-17
  * @since 1.5.0
@@ -32,6 +34,11 @@ public class LongSpringLazyDataModel<
   R extends JpaRepository<T, Long> & JpaSpecificationExecutor<T>>
   extends ExtendedSpringDataJpaLazyDataModel<T, Long, R> {
 
+  /**
+   * creates a new instance of data model, which supports entities with Long as IDs.
+   *
+   * @param repository the repository to use,
+   */
   public LongSpringLazyDataModel(R repository) {
     super(repository);
   }

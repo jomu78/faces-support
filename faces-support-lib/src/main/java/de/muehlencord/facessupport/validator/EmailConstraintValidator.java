@@ -22,15 +22,23 @@ import jakarta.validation.ConstraintValidatorContext;
 import java.util.regex.Pattern;
 
 /**
+ * ConstraintValidator for email addresses.
  *
  * @author Joern Muehlencord (joern@muehlencord.de)
+ * @since 0.1.0
  */
 public class EmailConstraintValidator implements ConstraintValidator<Email, String> {
 
+  /**
+   * default regexp pattern for email addresses.
+   */
   private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-]+(\\."
     + "[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*"
     + "(\\.[A-Za-z]{2,})$";
 
+  /**
+   * the pattern to use
+   */
   private Pattern pattern;
 
   @Override

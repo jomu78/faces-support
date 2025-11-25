@@ -14,6 +14,12 @@ import de.muehlencord.facessupport.view.AbstractStandardView;
  */
 public class PersonView extends AbstractStandardView<Person, Long, PersonRepository> {
 
+  /**
+   * backing bean for person demo page
+   *
+   * @param sessionView the sessionView used for i18n
+   * @param repository  the spring data jpa repository used to access the database
+   */
   public PersonView(SessionView sessionView, PersonRepository repository) {
     super("person", sessionView, new LongSpringLazyDataModel<>(repository), Person.class);
   }

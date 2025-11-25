@@ -60,6 +60,7 @@ public interface FacesUtil {
    *
    * @param clientId the id of the object to bind the message to.
    * @param message the message to display
+   * @param validationFailed if true, the validation is marked as failed in the FacesContext.
    */
   default void addMessage(String clientId, FacesMessage message, boolean validationFailed) {
     FacesContext.getCurrentInstance().addMessage(clientId, message);
@@ -204,6 +205,7 @@ public interface FacesUtil {
   /**
    * adds the given message as an error message, clientId null.
    *
+   * @param clientId  the id of the client to insert the message into. Typically, a p:message id=clientId.
    * @param summary          the summary of the message
    * @param detail           the detail of the message
    * @param validationFailed controls, whether the message should cause a validation failed exception or not

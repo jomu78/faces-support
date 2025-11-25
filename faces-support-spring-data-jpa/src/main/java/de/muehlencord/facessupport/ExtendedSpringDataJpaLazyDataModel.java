@@ -40,6 +40,9 @@ import java.util.function.Function;
 
 /**
  * primefaces lazy dataModel bound to a spring data jpa repository.
+ * @param <T>  the entity to read with the dataModel
+ * @param <I>  the type of the ID of the entity T to read
+ * @param <R> the repository to access the database with
  *
  * @author Joern Muehlencord, 2025-09-07
  * @since 1.5.0
@@ -50,16 +53,35 @@ public class ExtendedSpringDataJpaLazyDataModel<
   R extends JpaRepository<T, I> & JpaSpecificationExecutor<T>>
   extends SpringDataJpaLazyDataModel<T, I, R> {
 
+  /**
+   * default filters applied to any request
+   */
   private final Map<String, FilterMeta> defaultFilters = new HashMap<>();
+  /**
+   * custom filter implementations
+   */
   private final Map<String, Function<FilterMeta, Specification<T>>> customFilters = new HashMap<>();
+  /**
+   * custom sort implementations
+   */
   private final Map<String, List<Sort.Order>> customSort = new HashMap<>();
 
+  /**
+   * the repository to use. Since repository in SpringDataJpaLazyDataModel is not protected, we need
+   * to keep our own reference.
+   */
   private final transient R internalRepository;
 
+  /**
+   * creates a new instance using the given repository,
+   *
+   * @param repository the repository to use.
+   */
   public ExtendedSpringDataJpaLazyDataModel(R repository) {
     super(repository);
     this.internalRepository = repository;
   }
+
 
   @Override
   public List<T> load(int first, int pageSize, Map<String, SortMeta> sortBy, Map<String, FilterMeta> filterBy) {
@@ -83,7 +105,7 @@ public class ExtendedSpringDataJpaLazyDataModel<
 
     return filterBy.values().stream()
       .map(this::getSpecification)
-      .reduce((a, b) -> Specification.where(a).and(b))
+      .reduce(Specification::and)
       .orElse(null);
   }
 
@@ -151,14 +173,32 @@ public class ExtendedSpringDataJpaLazyDataModel<
   }
 
   /* **** additional features **** */
+
+  /**
+   * apply a custom filter for the given key,
+   * @param key the key to apply the custom filter on
+   * @param specFactory the specification factory to apply.
+   */
   public void addCustomFilter(String key, Function<FilterMeta, Specification<T>> specFactory) {
     this.customFilters.put(key, specFactory);
   }
 
+  /**
+   * apply a default filter for the given key.
+   *
+   * @param key        the key to apply the filter to
+   * @param filterMeta the filterMeta to apply
+   */
   public void addDefaultFilter(String key, FilterMeta filterMeta) {
     defaultFilters.put(key, filterMeta);
   }
 
+  /**
+   * add a custom sort for the given key.
+   *
+   * @param key    the key to apply the custom sort on
+   * @param orders the sort to apply.
+   */
   public void addCustomSort(String key, List<Sort.Order> orders) {
     customSort.put(key, orders);
   }
@@ -166,24 +206,50 @@ public class ExtendedSpringDataJpaLazyDataModel<
 
   /* **** custom repository methods **** */
 
-
+  /**
+   * find the element by the given id
+   *
+   * @param id the id of the element to search for
+   * @return the given element if found, null otherwise
+   */
   public T load(I id) {
     return internalRepository.findById(id).orElse(null);
   }
 
+  /**
+   * find the element by the given id
+   * @param id the id of the element to search for
+   * @return the entity with the given id or {@literal Optional#empty()} if none found.
+   */
   public Optional<T> findById(I id) {
     return internalRepository.findById(id);
   }
 
+  /**
+   * save the given element
+   * @param element the element to save
+   * @return the updated element
+   */
   public T save(T element) {
     return internalRepository.save(element);
   }
 
+  /**
+   * delete the given element
+   * @param element the element to delete
+   */
   public void delete(T element) {
     internalRepository.delete(element);
   }
 
-  @Deprecated
+  /**
+   * returns a list of all elements (without pagination, no lazy loading)
+   *
+   * @return a list of all elements.
+   * @deprecated use {@link de.muehlencord.facessupport.ExtendedSpringDataJpaLazyDataModel#load(int, int, Map, Map)}
+   * instead.
+   */
+  @Deprecated(forRemoval = true)
   public List<T> getAllElements() {
     return internalRepository.findAll();
   }

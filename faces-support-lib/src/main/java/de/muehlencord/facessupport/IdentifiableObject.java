@@ -22,13 +22,23 @@ import java.io.Serializable;
 /**
  * object identified by id of given type T.
  *
+ * @param <T> the type of the ID object the element is identified by.
  * @author Joern Muehlencord, 2025-08-17
  * @since 0.1.0
  */
 public interface IdentifiableObject <T extends Serializable> extends Serializable {
 
+  /**
+   * the id of the element.
+   * @return the id of the given object
+   */
   T getId();
 
+  /**
+   * returns the id element of the object.
+   *
+   * @return the id element of the object
+   */
   default String getIdString() {
     T id = getId();
     if (id == null) {
@@ -38,6 +48,9 @@ public interface IdentifiableObject <T extends Serializable> extends Serializabl
     }
   }
 
+  /**
+   * generate the ID if supported.
+   */
   default void generateId() {
     throw new UnsupportedOperationException("generateID not supported");
   }

@@ -32,7 +32,16 @@ import java.io.Serializable;
 @Setter
 public abstract class StringIdentifiedObject implements IdentifiableObject<String>, Serializable {
 
+  /**
+   * the id of the element.
+   */
   protected String id;
+
+  /**
+   * returns the id element of the object.
+   *
+   * @return the id element of the object
+   */
 
   @Override
   public String getId() {

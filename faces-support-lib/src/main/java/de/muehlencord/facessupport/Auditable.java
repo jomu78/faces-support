@@ -17,12 +17,23 @@
 package de.muehlencord.facessupport;
 
 /**
+ * interface to support elements with Audit elements
  * @author Joern Muehlencord (joern@muehlencord.de)
+ * @since 0.1.0
  */
 public interface Auditable {
 
+  /**
+   * returns the current Audit object
+   *
+   * @return the current Audit object
+   */
   Audit getAudit();
 
+  /**
+   * set a new Audit object as current audit object
+   * @param audit the audit object to set.
+   */
   void setAudit(Audit audit);
 
 }

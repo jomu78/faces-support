@@ -41,6 +41,7 @@ public class LocalDateTimeUtil  {
    *
    * @param javaType      type of the entity
    * @param valueObjectIn object which probably must be converted
+   * @param <T> the type to convert
    * @return original array of objects or array of LocalDateTime objects
    */
   public static <T> Object[] convertToLocalDateTimeIfNeeded(Class<T> javaType, Object[] valueObjectIn) {
@@ -78,10 +79,23 @@ public class LocalDateTimeUtil  {
   }
 
 
+  /**
+   * calculate the last working day of the month. Saturdays are not handled as work days.
+   *
+   * @return the last working days of the month.
+   */
   public static LocalDate getLastWorkingDayOfLastMonth() {
     return getLastWorkingDayOfLastMonth (LocalDate.now(), false);
   }
 
+  /**
+   * calculate the last working day of the month. Saturdays can be handled as working days or not.
+   *
+   * @param date                 the date to calculate the last working day of the month for.
+   * @param saturdayIsWorkingDay if true, saturdays are handled as working days. If false, saturdays are
+   *                             not handled as working days.
+   * @return the last working day of the month, the given date belongs to.
+   */
   public static LocalDate getLastWorkingDayOfLastMonth(LocalDate date, boolean saturdayIsWorkingDay) {
     int dayOfMonth = date.getDayOfMonth();
 
@@ -99,6 +113,15 @@ public class LocalDateTimeUtil  {
     return rv;
   }
 
+  /**
+   * add an amount of working days to a given date. The amount of days must be positive, holidays are not
+   * taken into account.
+   *
+   * @param date                 the date to start from
+   * @param workdays             the amount of workdays to add. must be a positive value.
+   * @param saturdayIsWorkingDay if true, saturdays are handled as work days, if set to false, not.
+   * @return the calculated date, when adding workdays to the given date,
+   */
   public static LocalDate addWorkingDays(LocalDate date, int workdays, boolean saturdayIsWorkingDay) {
     if (workdays < 1) {
       return date;

@@ -28,7 +28,8 @@ import java.util.List;
 
 /**
  * interface for manged bean to for crud operations on IdentifiableObject
- *
+ * @param <T> the base object the view supports.
+ * @param <I> the Id object of the base object.
  * @author Joern Muehlencord, 2025-08-17
  * @since 0.1.0
  */
@@ -153,7 +154,8 @@ public interface StandardView <T extends IdentifiableObject<I>, I extends Serial
   String getRequiredChangeRole();
 
   /**
-   * returns true, if the user as edit rights
+   * returns true, if the user as edit rights.
+   * @return true, if the uas edit rights, false otherwise.
    */
   boolean getCanEdit();
 }

@@ -17,7 +17,6 @@
 package de.muehlencord.facessupport.validator;
 
 import jakarta.validation.Constraint;
-import jakarta.validation.Payload;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
@@ -29,8 +28,10 @@ import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
+ * annotation to mark a field as email with automatic email validation constraint.
  *
  * @author Joern Muehlencord (joern@muehlencord.de)
+ * @since 0.1.0
  */
 @Target({METHOD, FIELD, ANNOTATION_TYPE})
 @Retention(RUNTIME)
@@ -40,10 +41,15 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Documented
 public @interface Email {
 
+  /**
+   * returns the message to return if the validation fails.
+   *
+   * @return the message if validation fails.
+   */
   String message() default "{de.muehlencord.shared.jeeutil.validator.Email}";
 
-  Class<?>[] groups() default {};
+//  Class<?>[] groups() default {};
 
-  Class<? extends Payload>[] payload() default {};
+//  Class<? extends Payload>[] payload() default {};
 
 }

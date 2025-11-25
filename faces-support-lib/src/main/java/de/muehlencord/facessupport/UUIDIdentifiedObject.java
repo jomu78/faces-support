@@ -33,8 +33,16 @@ import java.util.UUID;
 @Setter
 public abstract class UUIDIdentifiedObject implements IdentifiableObject<UUID>, Serializable {
 
+  /**
+   * the id of the element.
+   */
   protected UUID id;
 
+  /**
+   * returns the id element of the object.
+   *
+   * @return the id element of the object
+   */
   @Override
   public UUID getId() {
     return id;

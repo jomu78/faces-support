@@ -38,6 +38,9 @@ import java.io.Serializable;
 @Setter
 public class LongIdentifiedEntity extends IdentifiableEntity<Long> implements Serializable {
 
+  /**
+   * the id of the entity
+   */
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Basic(optional = false)

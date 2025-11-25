@@ -30,14 +30,24 @@ import java.util.List;
 
 /**
  * extended filter meta to support IN predicates.
+ * @param <T>  the domain type the repository manages.
  *
  * @author Joern Muehlencord, 2025-09-11
  * @since 1.5.0
  */
 public class ExtendedFilterMetaSpecification<T> extends SpringDataJpaLazyDataModel.FilterMetaSpecification<T> {
 
+  /**
+   * the filterMeta specification to use. Since filterMeta in
+   * {@link org.joinfaces.primefaces.SpringDataJpaLazyDataModel.FilterMetaSpecification} is private, we need to
+   * hold our own reference.
+   */
   private FilterMeta internalFilterMeta;
 
+  /**
+   * creates a new instance of the extended filter meta specification
+   * @param filterMeta the filterMeta to use
+   */
   public ExtendedFilterMetaSpecification(FilterMeta filterMeta) {
     super(filterMeta);
     this.internalFilterMeta = filterMeta;

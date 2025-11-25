@@ -24,6 +24,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * entity with id field of type string.
@@ -33,19 +35,17 @@ import jakarta.validation.constraints.NotNull;
  */
 @MappedSuperclass
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@Getter
+@Setter
 public class StringIdentifiedEntity extends IdentifiableEntity<String>  {
 
+  /**
+   * the id of the entity
+   */
   @Id
   @Basic(optional = false)
   @NotNull
   @Column(name = "id")
   protected String id;
 
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
 }

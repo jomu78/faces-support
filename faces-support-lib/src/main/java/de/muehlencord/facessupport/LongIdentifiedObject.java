@@ -32,7 +32,16 @@ import java.io.Serializable;
 @Setter
 public abstract class LongIdentifiedObject implements IdentifiableObject<Long>, Serializable {
 
+  /**
+   * the id of the element.
+   */
   protected Long id;
+
+  /**
+   * returns the id element of the object.
+   *
+   * @return the id element of the object
+   */
 
   @Override
   public Long getId() {

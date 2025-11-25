@@ -12,6 +12,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class DemoApplication {
 
+  /**
+   * start the demo application
+   *
+   * @param args the application runtime arguments
+   */
   public static void main(String[] args) {
     SpringApplication.run(DemoApplication.class, args);
   }
