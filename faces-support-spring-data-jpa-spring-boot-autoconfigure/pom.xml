@@ -11,6 +11,7 @@
   </parent>
 
   <artifactId>faces-support-spring-data-jpa-spring-boot-autoconfigure</artifactId>
+  <name>faces-support-spring-data-jpa-spring-boot-autoconfigure</name>
 
   <dependencies>
     <dependency>
