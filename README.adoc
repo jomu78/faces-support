@@ -1,9 +1,11 @@
 = faces-support
 
+A Java library to simply Primefaces based CRUD applications.
+
 [cols="3,4a,4a,4a,3", frame=none, grid=none]
 |===
 |
-| image::https://github.com/jomu78/faces-support/actions/workflows/maven.yml/badge.svg?branch=feature%2Finitial[]
+| image::https://github.com/jomu78/faces-support/actions/workflows/maven.yml/badge.svg?branch=1.5.x[]
 | image::https://maven-badges.herokuapp.com/maven-central/de.muehlencord.facessupport/faces-support/badge.svg[]
 | image::https://img.shields.io/badge/License-Apache_2.0-success[]
 |
