@@ -228,6 +228,16 @@
         </executions>
       </plugin>
 
+      <!-- released based on maven -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>${maven-release-plugin.version}</version>
+        <configuration>
+          <autoVersionSubmodules>true</autoVersionSubmodules>
+        </configuration>
+      </plugin>
+
       <!-- automatically create javadoc archive -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -261,34 +271,6 @@
         </executions>
       </plugin>
 
-      <!-- automatically create file with all licenses used -->
-      <!--
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>license-maven-plugin</artifactId>
-        <version>${license-maven-plugin.version}</version>
-        <executions>
-          <execution>
-            <id>download-licenses</id>
-            <phase>generate-resources</phase>
-            <goals>
-              <goal>download-licenses</goal>
-              <goal>add-third-party</goal>
-            </goals>
-            <configuration>
-              <licensesOutputDirectory>${licenses.dir}</licensesOutputDirectory>
-              <outputDirectory>${licenses.dir}</outputDirectory>
-              <licenseMerges>
-                <licenseMerge>The Apache Software License, Version 2.0|Apache 2|Apache License, Version 2.0|Apache
-                  Public License 2.0
-                </licenseMerge>
-              </licenseMerges>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      -->
-
       <!-- sign components -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -308,7 +290,7 @@
         </configuration>
       </plugin>
 
-      <!-- deploy to OSSRH Sonatype -->
+      <!-- deploy to maven central -->
       <plugin>
         <groupId>org.sonatype.central</groupId>
         <artifactId>central-publishing-maven-plugin</artifactId>
