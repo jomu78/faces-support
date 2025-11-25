@@ -1,6 +1,6 @@
 = faces-support
 
-A Java library to simply Primefaces based CRUD applications.
+A Java library to simplify Primefaces based CRUD applications.
 
 [cols="3,4a,4a,4a,3", frame=none, grid=none]
 |===
