@@ -7,7 +7,7 @@ A Java library to simplify Primefaces based CRUD applications.
 |
 | image::https://github.com/jomu78/faces-support/actions/workflows/maven.yml/badge.svg?branch=1.5.x[]
 | image::https://img.shields.io/maven-central/v/de.muehlencord.facessupport/faces-support[]
-| https://img.shields.io/github/license/jomu78/faces-support[]
+| image::https://img.shields.io/github/license/jomu78/faces-support[]
 |
 |===
 
