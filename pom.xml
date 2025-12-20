@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.5.8</version>
+    <version>3.5.9</version>
     <relativePath />
     <!-- lookup parent from repository -->
   </parent>
@@ -86,11 +86,11 @@
     </sonar.coverage.jacoco.xmlReportPaths>
 
     <!-- dependency versions -->
-    <joinfaces.version>5.5.8</joinfaces.version>
-    <spring-boot.version>3.5.8</spring-boot.version>
+    <joinfaces.version>5.5.9</joinfaces.version>
+    <spring-boot.version>3.5.9</spring-boot.version>
 
     <!-- overwrite dependencies manged parent -->
-    <commons-lang3.version>3.18.0</commons-lang3.version>
+    <commons-lang3.version>3.20.0</commons-lang3.version>
 
     <!-- plugin versions -->
     <jacoco-maven-plugin.version>0.8.14</jacoco-maven-plugin.version>
