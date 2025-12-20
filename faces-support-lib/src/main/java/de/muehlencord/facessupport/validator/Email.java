@@ -48,8 +48,4 @@ public @interface Email {
    */
   String message() default "{de.muehlencord.shared.jeeutil.validator.Email}";
 
-//  Class<?>[] groups() default {};
-
-//  Class<? extends Payload>[] payload() default {};
-
 }

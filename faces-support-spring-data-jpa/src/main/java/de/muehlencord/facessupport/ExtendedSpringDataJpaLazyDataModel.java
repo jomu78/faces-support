@@ -19,6 +19,7 @@ package de.muehlencord.facessupport;
 
 import de.muehlencord.facessupport.entity.IdentifiableEntity;
 import org.joinfaces.primefaces.SpringDataJpaLazyDataModel;
+import org.jspecify.annotations.NonNull;
 import org.primefaces.model.FilterMeta;
 import org.primefaces.model.SortMeta;
 import org.primefaces.model.SortOrder;
@@ -26,7 +27,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
-import org.springframework.lang.Nullable;
 import org.springframework.util.CollectionUtils;
 
 import java.io.Serializable;
@@ -96,17 +96,17 @@ public class ExtendedSpringDataJpaLazyDataModel<
     return super.load(first, pageSize, sortBy, filters);
   }
 
-  @Nullable
+  @NonNull
   @Override
   protected Specification<T> getSpecification(Map<String, FilterMeta> filterBy) {
     if (CollectionUtils.isEmpty(filterBy)) {
-      return null;
+      return Specification.unrestricted();
     }
 
     return filterBy.values().stream()
       .map(this::getSpecification)
       .reduce(Specification::and)
-      .orElse(null);
+      .orElse( Specification.unrestricted());
   }
 
   @Override

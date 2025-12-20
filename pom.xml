@@ -5,14 +5,14 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.5.9</version>
+    <version>4.0.1</version>
     <relativePath />
     <!-- lookup parent from repository -->
   </parent>
 
   <groupId>de.muehlencord.facessupport</groupId>
   <artifactId>faces-support</artifactId>
-  <version>1.5.10-SNAPSHOT</version>
+  <version>1.6.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>faces-support</name>
   <modules>
@@ -86,8 +86,8 @@
     </sonar.coverage.jacoco.xmlReportPaths>
 
     <!-- dependency versions -->
-    <joinfaces.version>5.5.9</joinfaces.version>
-    <spring-boot.version>3.5.9</spring-boot.version>
+    <joinfaces.version>6.0.1</joinfaces.version>
+    <spring-boot.version>4.ß.1</spring-boot.version>
 
     <!-- overwrite dependencies manged parent -->
     <commons-lang3.version>3.20.0</commons-lang3.version>
@@ -95,12 +95,12 @@
     <!-- plugin versions -->
     <jacoco-maven-plugin.version>0.8.14</jacoco-maven-plugin.version>
     <maven-javadoc-plugin.version>3.12.0</maven-javadoc-plugin.version>
-    <maven-source-plugin.version>3.3.1</maven-source-plugin.version>
+    <maven-source-plugin.version>3.4.0</maven-source-plugin.version>
     <license-maven-plugin.version>2.2.0</license-maven-plugin.version>
     <maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
     <central-publishing-maven-plugin.version>0.9.0</central-publishing-maven-plugin.version>
-    <maven-war-plugin.version>3.4.0</maven-war-plugin.version>
-    <maven-release-plugin.version>3.1.1</maven-release-plugin.version>
+    <maven-war-plugin.version>3.5.1</maven-war-plugin.version>
+    <maven-release-plugin.version>3.3.1</maven-release-plugin.version>
     <maven-deploy-plugin.version>3.1.4</maven-deploy-plugin.version>
   </properties>
 
@@ -154,7 +154,6 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>${maven-compiler-plugin.version}</version>
           <configuration>
             <showDeprecation>true</showDeprecation>
             <annotationProcessorPaths>
@@ -167,7 +166,6 @@
               <path>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-configuration-processor</artifactId>
-                <version>${spring-boot.version}</version>
               </path>
             </annotationProcessorPaths>
           </configuration>

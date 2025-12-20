@@ -45,18 +45,18 @@ import java.util.List;
 
 /**
  * abstract class as base for a backing bean supporting CRUD operations.
+ *
  * @param <T> the entity type this view supports
  * @param <I> the type of the primary key of the entity shown in this view
  * @param <R> the repository to access the database with
- *
  * @author Joern Muehlencord 2020-05-24
  */
 public abstract class AbstractStandardView<
   T extends IdentifiableEntity<I>,
   I extends Serializable,
   R extends JpaRepository<T, I> & JpaSpecificationExecutor<T>>
-    extends AbstractView
-    implements StandardView<T,I>, Serializable, FacesUtil {
+  extends AbstractView
+  implements StandardView<T, I>, Serializable, FacesUtil {
 
   /**
    * the logger
@@ -224,11 +224,9 @@ public abstract class AbstractStandardView<
         if (editElement.getId() == null) {
           editElement.generateId();
         }
-        if (editElement instanceof Auditable auditable) {
-          if (auditable.getAudit() == null) {
-            // create new audit if no audit exists
-            auditable.setAudit(new AuditEntity().withNewAudit(sessionView.getUserName()));
-          }
+        if (editElement instanceof Auditable auditable && auditable.getAudit() == null) {
+          // create new audit if no audit exists
+          auditable.setAudit(new AuditEntity().withNewAudit(sessionView.getUserName()));
         }
 
         editElement = dataModel.save(editElement);
@@ -293,7 +291,8 @@ public abstract class AbstractStandardView<
         allElements = null;
       } catch (RuntimeException ex) {
         String summary = sessionView.getLocalizedMessage(AbstractView.ERROR);
-        String message = sessionView.getLocalizedMessage("message_failed_to_delete", i18nId, ExceptionUtils.getRootCause(ex).getMessage());
+        String message = sessionView.getLocalizedMessage("message_failed_to_delete", i18nId, ExceptionUtils.getRootCause(ex)
+          .getMessage());
         addGlobalErrorMessage(summary, message);
       }
     }
@@ -339,7 +338,7 @@ public abstract class AbstractStandardView<
       return true;
     }
 
-    return sessionView.canEdit (requiredChangeRole);
+    return sessionView.canEdit(requiredChangeRole);
   }
 
   /* *** getter / setter *** */
@@ -355,7 +354,7 @@ public abstract class AbstractStandardView<
   }
 
   /**
-   * add a default filter wich is applied to any dataModel request.
+   * add a default filter which is applied to any dataModel request.
    *
    * @param key        for the column to apply the filter on.
    * @param filterMeta the filterMeta specification describing the filter.
@@ -375,7 +374,8 @@ public abstract class AbstractStandardView<
           logger.debug(ex.getMessage(), ex);
         }
         String summary = sessionView.getLocalizedMessage(AbstractView.ERROR);
-        String message = sessionView.getLocalizedMessage("message_failed_to_load", i18nId, ExceptionUtils.getRootCause(ex).getMessage());
+        String message = sessionView.getLocalizedMessage("message_failed_to_load", i18nId, ExceptionUtils.getRootCause(ex)
+          .getMessage());
         addGlobalErrorMessage(summary, message);
         // init all elements to avoid exception is logged and message is added twice in render and response phase
         allElements = Collections.emptyList();

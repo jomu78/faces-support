@@ -32,13 +32,6 @@ import java.io.Serializable;
 @Setter
 public abstract class IntegerIdentifiedObject implements IdentifiableObject<Integer>, Serializable {
 
-//  /**
-//   * the default constructor creating a new instance.
-//   */
-//  protected IntegerIdentifiedObject() {
-//     default constructor
-//  }
-
   /**
    * the id of the element.
    */
