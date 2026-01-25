@@ -27,6 +27,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
 import java.util.UUID;
 
 /**
@@ -59,4 +60,19 @@ public abstract class UuidIdentifiedEntity extends IdentifiableEntity<UUID> {
       id = UUID.randomUUID();
     }
   }
+
+  @Override
+  public boolean equals(Object o) {
+    var hibernateAwareEquals = super.hibernateAwareEquals(o);
+    if (!hibernateAwareEquals) {
+      return false;
+    }
+
+    if (o instanceof UuidIdentifiedEntity that) {
+      return Objects.equals(id, that.id);
+    } else {
+      return false;
+    }
+  }
+
 }

@@ -27,6 +27,8 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 /**
  * entity with id field of type string.
  *
@@ -47,5 +49,20 @@ public class StringIdentifiedEntity extends IdentifiableEntity<String>  {
   @NotNull
   @Column(name = "id")
   protected String id;
+
+
+  @Override
+  public boolean equals(Object o) {
+    var hibernateAwareEquals = super.hibernateAwareEquals(o);
+    if (!hibernateAwareEquals) {
+      return false;
+    }
+
+    if (o instanceof StringIdentifiedEntity that) {
+      return Objects.equals(id, that.id);
+    } else {
+      return false;
+    }
+  }
 
 }

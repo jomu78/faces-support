@@ -26,6 +26,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * entity with id field of type integer.
@@ -45,5 +46,19 @@ public class IntegerIdentifiedEntity extends IdentifiableEntity<Integer> impleme
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Basic(optional = false)
   protected Integer id;
+
+  @Override
+  public boolean equals(Object o) {
+    var hibernateAwareEquals = super.hibernateAwareEquals(o);
+    if (!hibernateAwareEquals) {
+      return false;
+    }
+
+    if (o instanceof IntegerIdentifiedEntity that) {
+      return Objects.equals(id, that.id);
+    } else {
+      return false;
+    }
+  }
 
 }

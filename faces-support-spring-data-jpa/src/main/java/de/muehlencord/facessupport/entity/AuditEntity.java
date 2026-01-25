@@ -41,6 +41,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
+import java.util.Objects;
 
 /**
  * Entity implementation of {@link  de.muehlencord.facessupport.Audit  Audit}
@@ -328,5 +329,27 @@ public class AuditEntity implements Audit, Serializable {
     this.lastUpdatedBy = lastUpdatedBy;
     return this;
   }
+
+  @Override
+  public boolean equals(Object o) {
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+
+    AuditEntity that = (AuditEntity) o;
+    return Objects.equals(validFrom, that.validFrom) && Objects.equals(validTo, that.validTo) && Objects.equals(createdOn, that.createdOn) && Objects.equals(createdBy, that.createdBy) && Objects.equals(lastUpdatedOn, that.lastUpdatedOn) && Objects.equals(lastUpdatedBy, that.lastUpdatedBy);
+  }
+
+  /**
+   * string representation of the entity
+   *
+   * @return string representation of the entity
+   */
+  @Override
+  public String toString() {
+    return String.format("%s[validFrom=%s, validTo=%s, createdOn=%s, createdBy=%s, lastUpdatedOn=%s, lastUpdatedBy=%s]",
+      getClass().getSimpleName(), validFrom, validTo, createdOn, createdBy, lastUpdatedOn, lastUpdatedBy);
+  }
+
 
 }
