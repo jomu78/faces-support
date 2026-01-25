@@ -17,10 +17,10 @@
 
 package de.muehlencord.facessupport;
 
+import java.io.Serializable;
+import java.util.Objects;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.io.Serializable;
 
 /**
  * object identified by Integer.
@@ -31,13 +31,6 @@ import java.io.Serializable;
 @Getter
 @Setter
 public abstract class IntegerIdentifiedObject implements IdentifiableObject<Integer>, Serializable {
-
-//  /**
-//   * the default constructor creating a new instance.
-//   */
-//  protected IntegerIdentifiedObject() {
-//     default constructor
-//  }
 
   /**
    * the id of the element.
@@ -52,5 +45,24 @@ public abstract class IntegerIdentifiedObject implements IdentifiableObject<Inte
   @Override
   public Integer getId() {
     return id;
+  }
+
+  @Override
+  public String toString() {
+    return String.format("%s[id=%s]", getClass().getSimpleName(), getIdString());
+  }
+
+  @Override
+  public int hashCode() {
+    return getClass().hashCode();
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    IntegerIdentifiedObject that = (IntegerIdentifiedObject) o;
+    return Objects.equals(id, that.id);
   }
 }

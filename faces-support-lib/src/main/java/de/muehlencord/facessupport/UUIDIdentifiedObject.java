@@ -21,6 +21,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.UUID;
 
 /**
@@ -46,5 +47,24 @@ public abstract class UUIDIdentifiedObject implements IdentifiableObject<UUID>, 
   @Override
   public UUID getId() {
     return id;
+  }
+
+  @Override
+  public String toString() {
+    return String.format("%s[id=%s]", getClass().getSimpleName(), getIdString());
+  }
+
+  @Override
+  public int hashCode() {
+    return getClass().hashCode();
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    UUIDIdentifiedObject that = (UUIDIdentifiedObject) o;
+    return Objects.equals(id, that.id);
   }
 }

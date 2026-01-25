@@ -19,9 +19,9 @@ package de.muehlencord.facessupport.entity;
 
 import de.muehlencord.facessupport.IdentifiableObject;
 import jakarta.persistence.MappedSuperclass;
-import org.springframework.data.domain.Persistable;
-
 import java.io.Serializable;
+import org.hibernate.proxy.HibernateProxy;
+import org.springframework.data.domain.Persistable;
 
 /**
  * base class entity, identified by field id which is of type T.
@@ -51,6 +51,8 @@ public abstract class IdentifiableEntity <T extends Serializable>
     return getId() == null;
   }
 
+  /* *** equals / hashCode / toString *** */
+
   /**
    * string representation of the entity
    *
@@ -59,5 +61,31 @@ public abstract class IdentifiableEntity <T extends Serializable>
   @Override
   public String toString() {
     return String.format("%s[id=%s]", getClass().getSimpleName(), getIdString());
+  }
+
+
+  public boolean hibernateAwareEquals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null) {
+      return false;
+    }
+    Class<?> oEffectiveClass = o instanceof HibernateProxy hibernateProxy
+      ? hibernateProxy.getHibernateLazyInitializer().getPersistentClass()
+      : o.getClass();
+
+    Class<?> thisEffectiveClass = this instanceof HibernateProxy hibernateProxy
+      ? hibernateProxy.getHibernateLazyInitializer().getPersistentClass()
+      : this.getClass();
+
+    return thisEffectiveClass == oEffectiveClass;
+  }
+
+  @Override
+  public int hashCode() {
+    return this instanceof HibernateProxy hibernateProxy
+      ? hibernateProxy.getHibernateLazyInitializer().getPersistentClass().hashCode()
+      : getClass().hashCode();
   }
 }

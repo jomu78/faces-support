@@ -21,6 +21,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * object identified by String.
@@ -46,5 +47,24 @@ public abstract class StringIdentifiedObject implements IdentifiableObject<Strin
   @Override
   public String getId() {
     return id;
+  }
+
+  @Override
+  public String toString() {
+    return String.format("%s[id=%s]", getClass().getSimpleName(), getIdString());
+  }
+
+  @Override
+  public int hashCode() {
+    return getClass().hashCode();
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    StringIdentifiedObject that = (StringIdentifiedObject) o;
+    return Objects.equals(id, that.id);
   }
 }
