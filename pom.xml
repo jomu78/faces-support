@@ -12,7 +12,7 @@
 
   <groupId>de.muehlencord.facessupport</groupId>
   <artifactId>faces-support</artifactId>
-  <version>1.5.11-SNAPSHOT</version>
+  <version>1.5.10.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>faces-support</name>
   <modules>
@@ -91,6 +91,7 @@
 
     <!-- overwrite dependencies manged parent -->
     <commons-lang3.version>3.20.0</commons-lang3.version>
+    <primefaces.version>14.0.12</primefaces.version>
 
     <!-- plugin versions -->
     <jacoco-maven-plugin.version>0.8.14</jacoco-maven-plugin.version>
@@ -112,6 +113,24 @@
         <version>${joinfaces.version}</version>
         <type>pom</type>
         <scope>import</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.primefaces</groupId>
+        <artifactId>primefaces</artifactId>
+        <classifier>jakarta</classifier>
+        <version>${primefaces.version}</version>
+      </dependency>
+
+<!--      <dependency>-->
+<!--        <groupId>org.primefaces</groupId>-->
+<!--        <artifactId>primefaces-themes</artifactId>-->
+<!--        <version>${primefaces.version}</version>-->
+<!--      </dependency>-->
+      <dependency>
+        <groupId>org.primefaces.extensions</groupId>
+        <artifactId>primefaces-extensions</artifactId>
+        <version>${primefaces.version}</version>
       </dependency>
 
       <dependency>

@@ -4,7 +4,7 @@
   <parent>
     <groupId>de.muehlencord.facessupport</groupId>
     <artifactId>faces-support</artifactId>
-    <version>1.5.11-SNAPSHOT</version>
+    <version>1.5.10.1-SNAPSHOT</version>
   </parent>
 
   <artifactId>faces-support-lib</artifactId>
@@ -16,7 +16,7 @@
       <groupId>org.primefaces</groupId>
       <artifactId>primefaces</artifactId>
       <classifier>jakarta</classifier>
-      <version>14.0.12</version>
+      <version>${primefaces.version}</version>
     </dependency>
     <dependency>
       <groupId>jakarta.faces</groupId>
