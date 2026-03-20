@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>4.0.3</version>
+    <version>4.0.4</version>
     <relativePath />
     <!-- lookup parent from repository -->
   </parent>
@@ -86,8 +86,8 @@
     </sonar.coverage.jacoco.xmlReportPaths>
 
     <!-- dependency versions -->
-    <joinfaces.version>6.0.3</joinfaces.version>
-    <spring-boot.version>4.0.3</spring-boot.version>
+    <joinfaces.version>6.0.4</joinfaces.version>
+    <spring-boot.version>4.0.4</spring-boot.version>
 
     <!-- overwrite dependencies manged parent -->
     <commons-lang3.version>3.20.0</commons-lang3.version>
