@@ -16,7 +16,7 @@
       <groupId>org.primefaces</groupId>
       <artifactId>primefaces</artifactId>
       <classifier>jakarta</classifier>
-      <version>14.0.12</version>
+      <version>${primefaces.version}</version>
     </dependency>
     <dependency>
       <groupId>jakarta.faces</groupId>

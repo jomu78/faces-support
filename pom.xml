@@ -86,6 +86,7 @@
     </sonar.coverage.jacoco.xmlReportPaths>
 
     <!-- dependency versions -->
+    <primefaces.version>15.0.13</primefaces.version>
     <joinfaces.version>6.0.4</joinfaces.version>
     <spring-boot.version>4.0.4</spring-boot.version>
 
