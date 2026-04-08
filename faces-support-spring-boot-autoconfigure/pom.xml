@@ -3,8 +3,9 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>de.muehlencord.facessupport</groupId>
-    <artifactId>faces-support</artifactId>
+    <artifactId>faces-support-parent</artifactId>
     <version>1.5.14-SNAPSHOT</version>
+    <relativePath>../faces-support-parent/pom.xml</relativePath>
   </parent>
 
   <artifactId>faces-support-spring-boot-autoconfigure</artifactId>
@@ -19,6 +20,7 @@
     <dependency>
       <groupId>de.muehlencord.facessupport</groupId>
       <artifactId>faces-support-lib</artifactId>
+      <version>${project.version}</version>
     </dependency>
   </dependencies>
 
