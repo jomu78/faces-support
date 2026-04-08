@@ -16,6 +16,7 @@
   <packaging>pom</packaging>
   <name>faces-support</name>
   <modules>
+    <module>faces-support-bom</module>
     <module>faces-support-spring-data-jpa-spring-boot-starter</module>
     <module>faces-support-spring-data-jpa-spring-boot-autoconfigure</module>
     <module>faces-support-lib</module>
@@ -116,35 +117,13 @@
 
       <dependency>
         <groupId>de.muehlencord.facessupport</groupId>
-        <artifactId>faces-support-spring-boot-autoconfigure</artifactId>
+        <artifactId>faces-support-bom</artifactId>
         <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>de.muehlencord.facessupport</groupId>
-        <artifactId>faces-support-spring-boot-starter</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>de.muehlencord.facessupport</groupId>
-        <artifactId>faces-support-spring-data-jpa-spring-boot-autoconfigure</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>de.muehlencord.facessupport</groupId>
-        <artifactId>faces-support-spring-data-jpa-spring-boot-starter</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>de.muehlencord.facessupport</groupId>
-        <artifactId>faces-support-spring-data-jpa</artifactId>
-        <version>${project.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
 
-      <dependency>
-        <groupId>de.muehlencord.facessupport</groupId>
-        <artifactId>faces-support-lib</artifactId>
-        <version>${project.version}</version>
-      </dependency>
+
     </dependencies>
   </dependencyManagement>
 
