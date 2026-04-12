@@ -11,6 +11,7 @@
 
   <artifactId>faces-support-bom</artifactId>
   <packaging>pom</packaging>
+  <name>faces-support-bom</name>
 
   <scm>
     <connection>scm:git:git@github.com:jomu78/faces-support.git</connection>
