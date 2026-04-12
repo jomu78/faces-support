@@ -4,14 +4,14 @@
 
   <groupId>de.muehlencord.facessupport</groupId>
   <artifactId>faces-support-bom</artifactId>
-  <version>1.5.14-SNAPSHOT</version>
+  <version>1.5.13.1</version>
   <packaging>pom</packaging>
 
   <scm>
     <connection>scm:git:git@github.com:jomu78/faces-support.git</connection>
     <developerConnection>scm:git:git@github.com:jomu78/faces-support.git</developerConnection>
     <url>https://github.com/jomu78/faces-support</url>
-    <tag>HEAD</tag>
+    <tag>faces-support-1.5.13.1</tag>
   </scm>
 
   <distributionManagement>
