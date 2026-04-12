@@ -36,6 +36,7 @@
     <!-- dependency versions -->
     <joinfaces.version>5.5.13</joinfaces.version>
     <spring-boot.version>3.5.13</spring-boot.version>
+    <lombok.version>1.18.44</lombok.version>
 
     <!-- overwrite dependencies manged parent -->
     <commons-lang3.version>3.20.0</commons-lang3.version>
@@ -50,6 +51,8 @@
     <maven-war-plugin.version>3.4.0</maven-war-plugin.version>
     <maven-release-plugin.version>3.3.1</maven-release-plugin.version>
     <maven-deploy-plugin.version>3.1.4</maven-deploy-plugin.version>
+    <cyclonedx-maven-plugin.version>2.9.1</cyclonedx-maven-plugin.version>
+    <maven-compiler-plugin.version>3.15.0</maven-compiler-plugin.version>
   </properties>
 
   <dependencyManagement>
@@ -205,16 +208,6 @@
           <skipNotDeployed>false</skipNotDeployed>
         </configuration>
       </plugin>
-
-
-    </plugins>
-  </build>
-
-  <profiles>
-    <profile>
-      <id>release</id>
-  <build>
-    <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-deploy-plugin</artifactId>
@@ -223,7 +216,80 @@
           <skip>true</skip>
         </configuration>
       </plugin>
+
+
     </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <id>release</id>
+      <build>
+        <plugins>
+          <!-- released based on maven -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-release-plugin</artifactId>
+            <version>${maven-release-plugin.version}</version>
+            <configuration>
+              <autoVersionSubmodules>true</autoVersionSubmodules>
+            </configuration>
+          </plugin>
+
+          <!-- automatically create javadoc archive -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <configuration>
+              <failOnError>true</failOnError>
+              <failOnWarnings>false</failOnWarnings>
+            </configuration>
+            <executions>
+              <execution>
+                <id>attach-javadocs</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+
+          <!-- automatically create source archive -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>${maven-source-plugin.version}</version>
+            <executions>
+              <execution>
+                <id>attach-sources</id>
+                <goals>
+                  <goal>jar-no-fork</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+
+          <!-- sign components -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>${maven-gpg-plugin.version}</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <keyname>3448E23404383EEA</keyname>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
 </project>
