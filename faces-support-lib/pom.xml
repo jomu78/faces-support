@@ -3,12 +3,25 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>de.muehlencord.facessupport</groupId>
-    <artifactId>faces-support</artifactId>
+    <artifactId>faces-support-parent</artifactId>
     <version>2.0.6-SNAPSHOT</version>
+    <relativePath>../faces-support-parent/pom.xml</relativePath>
   </parent>
 
   <artifactId>faces-support-lib</artifactId>
   <name>faces-support-lib</name>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>de.muehlencord.facessupport</groupId>
+        <artifactId>faces-support-bom</artifactId>
+        <version>${project.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
 
   <dependencies>

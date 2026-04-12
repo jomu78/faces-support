@@ -26,6 +26,10 @@ import de.muehlencord.facessupport.entity.AuditEntity;
 import de.muehlencord.facessupport.entity.IdentifiableEntity;
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.event.ActionEvent;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.primefaces.event.SelectEvent;
 import org.primefaces.event.UnselectEvent;
@@ -37,11 +41,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
-
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * abstract class as base for a backing bean supporting CRUD operations.

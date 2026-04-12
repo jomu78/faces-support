@@ -4,8 +4,9 @@
 
   <parent>
     <groupId>de.muehlencord.facessupport</groupId>
-    <artifactId>faces-support</artifactId>
+    <artifactId>faces-support-parent</artifactId>
     <version>2.0.6-SNAPSHOT</version>
+    <relativePath>../faces-support-parent/pom.xml</relativePath>
   </parent>
 
   <artifactId>faces-support-spring-data-jpa-spring-boot-autoconfigure</artifactId>
@@ -20,6 +21,7 @@
     <dependency>
       <groupId>de.muehlencord.facessupport</groupId>
       <artifactId>faces-support-spring-data-jpa</artifactId>
+      <version>${project.version}</version>
     </dependency>
   </dependencies>
 
