@@ -59,7 +59,7 @@
     <connection>scm:git:git@github.com:jomu78/faces-support.git</connection>
     <developerConnection>scm:git:git@github.com:jomu78/faces-support.git</developerConnection>
     <url>https://github.com/jomu78/faces-support</url>
-    <tag>faces-support-1.5.13.1</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <properties>
