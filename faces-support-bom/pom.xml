@@ -4,14 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>de.muehlencord.facessupport</groupId>
-    <artifactId>faces-support-parent</artifactId>
-    <version>1.5.14-SNAPSHOT</version>
-    <relativePath>../faces-support-parent/pom.xml</relativePath>
-  </parent>
-
+  <groupId>de.muehlencord.facessupport</groupId>
   <artifactId>faces-support-bom</artifactId>
+  <version>1.5.14-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <dependencyManagement>

@@ -3,9 +3,8 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>de.muehlencord.facessupport</groupId>
-    <artifactId>faces-support-parent</artifactId>
+    <artifactId>faces-support</artifactId>
     <version>1.5.14-SNAPSHOT</version>
-    <relativePath>../faces-support-parent/pom.xml</relativePath>
   </parent>
 
   <artifactId>faces-support-coverage</artifactId>
@@ -15,17 +14,14 @@
     <dependency>
       <groupId>de.muehlencord.facessupport</groupId>
       <artifactId>faces-support-lib</artifactId>
-      <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>de.muehlencord.facessupport</groupId>
       <artifactId>faces-support-spring-data-jpa</artifactId>
-      <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>de.muehlencord.facessupport</groupId>
       <artifactId>faces-support-spring-data-jpa-spring-boot-starter</artifactId>
-      <version>${project.version}</version>
     </dependency>
   </dependencies>
 
