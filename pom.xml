@@ -101,7 +101,6 @@
 
   <build>
     <plugins>
-      <!-- released based on maven -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-release-plugin</artifactId>
@@ -109,6 +108,13 @@
         <configuration>
           <autoVersionSubmodules>true</autoVersionSubmodules>
           <releaseProfiles>release</releaseProfiles>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <configuration>
+          <skip>true</skip>
         </configuration>
       </plugin>
     </plugins>
