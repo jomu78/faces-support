@@ -21,6 +21,12 @@
     <module>faces-support-demo</module>
   </modules>
 
+  <scm>
+    <connection>scm:git:git@github.com:jomu78/faces-support.git</connection>
+    <developerConnection>scm:git:git@github.com:jomu78/faces-support.git</developerConnection>
+    <url>https://github.com/jomu78/faces-support</url>
+    <tag>HEAD</tag>
+  </scm>
 
 
 </project>
