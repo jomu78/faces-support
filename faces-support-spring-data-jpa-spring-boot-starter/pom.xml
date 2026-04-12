@@ -4,7 +4,7 @@
   <parent>
     <groupId>de.muehlencord.facessupport</groupId>
     <artifactId>faces-support</artifactId>
-    <version>1.5.13.1</version>
+    <version>1.5.14-SNAPSHOT</version>
   </parent>
 
   <artifactId>faces-support-spring-data-jpa-spring-boot-starter</artifactId>
