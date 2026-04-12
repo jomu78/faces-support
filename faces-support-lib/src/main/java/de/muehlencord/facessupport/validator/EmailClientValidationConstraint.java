@@ -26,7 +26,8 @@ import java.util.Map;
  *
  * @author Joern Muehlencord (joern@muehlencord.de)
  */
-public class EmailClientValidationConstraint { // {implements ClientValidationConstraint {
+public class EmailClientValidationConstraint {
+  // {implements ClientValidationConstraint
 
   /**
    * the i18n message to return if validation fails

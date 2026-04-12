@@ -5,7 +5,7 @@ A Java library to simplify Primefaces based CRUD applications.
 [cols="3,4a,4a,4a,3", frame=none, grid=none]
 |===
 |
-| image::https://github.com/jomu78/faces-support/actions/workflows/maven.yml/badge.svg?branch=1.5.x[]
+| image::https://github.com/jomu78/faces-support/actions/workflows/maven.yml/badge.svg?branch=1.6.x[]
 | image::https://img.shields.io/maven-central/v/de.muehlencord.facessupport/faces-support[]
 | image::https://img.shields.io/github/license/jomu78/faces-support[]
 |
@@ -31,7 +31,8 @@ A Java library to simplify Primefaces based CRUD applications.
 |===
 | faces-support | Java | Joinfaces | SpringBoot | PrimeFaces
 
-| 1.5.x | 21 | 5.5.x | 3.5.x | 15.x
+| 2.0.x | 21 | 6.0.x | 4.0.x | 15.x
+| 1.5.x | 21 | 5.5.x | 3.5.x | 14.x
 |===
 
 
