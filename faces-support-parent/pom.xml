@@ -76,8 +76,8 @@
     </sonar.coverage.jacoco.xmlReportPaths>
 
     <!-- dependency versions -->
-    <joinfaces.version>5.5.13</joinfaces.version>
-    <spring-boot.version>3.5.13</spring-boot.version>
+    <joinfaces.version>5.5.14</joinfaces.version>
+    <spring-boot.version>3.5.14</spring-boot.version>
 
     <!-- overwrite dependencies manged parent -->
     <commons-lang3.version>3.20.0</commons-lang3.version>
