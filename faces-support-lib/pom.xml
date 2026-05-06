@@ -11,25 +11,12 @@
   <artifactId>faces-support-lib</artifactId>
   <name>faces-support-lib</name>
 
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>de.muehlencord.facessupport</groupId>
-        <artifactId>faces-support-bom</artifactId>
-        <version>${project.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
-
-
   <dependencies>
     <dependency>
       <groupId>org.primefaces</groupId>
       <artifactId>primefaces</artifactId>
       <classifier>jakarta</classifier>
-      <version>${primefaces.version}</version>
+      <version>15.0.14</version>
     </dependency>
     <dependency>
       <groupId>jakarta.faces</groupId>
