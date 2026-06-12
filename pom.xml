@@ -4,7 +4,7 @@
 
   <groupId>de.muehlencord.facessupport</groupId>
   <artifactId>faces-support</artifactId>
-  <version>1.5.16-SNAPSHOT</version>
+  <version>1.5.15.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>faces-support</name>
   <modules>

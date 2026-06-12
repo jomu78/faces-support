@@ -5,14 +5,14 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>4.0.6</version>
+    <version>3.5.15</version>
     <relativePath />
     <!-- lookup parent from repository -->
   </parent>
 
   <groupId>de.muehlencord.facessupport</groupId>
   <artifactId>faces-support-parent</artifactId>
-  <version>1.5.16-SNAPSHOT</version>
+  <version>1.5.15.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>faces-support-parent</name>
 
@@ -76,9 +76,9 @@
     </sonar.coverage.jacoco.xmlReportPaths>
 
     <!-- dependency versions -->
-    <spring-boot.version>4.0.6</spring-boot.version>
-    <joinfaces.version>6.0.6.1</joinfaces.version>
-    <primefaces.version>15.0.14</primefaces.version>
+    <spring-boot.version>3.5.15</spring-boot.version>
+    <joinfaces.version>5.5.15</joinfaces.version>
+    <primefaces.version>15.0.16</primefaces.version>
 
     <!-- overwrite dependencies manged parent -->
     <commons-lang3.version>3.20.0</commons-lang3.version>
