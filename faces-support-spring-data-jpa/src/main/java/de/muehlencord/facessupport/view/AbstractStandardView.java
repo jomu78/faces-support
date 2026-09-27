@@ -26,7 +26,10 @@ import de.muehlencord.facessupport.entity.AuditEntity;
 import de.muehlencord.facessupport.entity.IdentifiableEntity;
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.event.ActionEvent;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import java.io.Serializable;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -61,6 +64,32 @@ public abstract class AbstractStandardView<
    * the logger
    */
   private static final Logger logger = LoggerFactory.getLogger(AbstractStandardView.class);
+
+  private Field getIdField(Class<?> entityClass) {
+    try {
+      return entityClass.getDeclaredField("id");
+    } catch (Exception ex) {
+      logger.trace(ex.getMessage(), ex);
+      return null;
+    }
+  }
+
+  private boolean hasGeneratedId(T entity) {
+    Class<?> entityClass = entity.getClass();
+    Field field = null;
+
+    while (field == null && entityClass != null) {
+      field = getIdField(entityClass);
+      entityClass = entityClass.getSuperclass();
+    }
+
+    if (field == null) {
+      return false;
+    } else {
+      return field.isAnnotationPresent(Id.class) && field.isAnnotationPresent(GeneratedValue.class);
+    }
+  }
+
 
   /**
    * the dataModel used
@@ -220,7 +249,7 @@ public abstract class AbstractStandardView<
   public void saveEdit() {
     try {
       if (editElement != null) {
-        if (editElement.getId() == null) {
+        if (editElement.getId() == null && !hasGeneratedId(editElement)) {
           editElement.generateId();
         }
         if (editElement instanceof Auditable auditable && auditable.getAudit() == null) {
@@ -237,6 +266,8 @@ public abstract class AbstractStandardView<
         editElement = null;
       }
     } catch (RuntimeException ex) {
+      logger.debug(ex.getMessage(), ex);
+
       String summary = sessionView.getLocalizedMessage(AbstractView.ERROR);
       String i18nElement = sessionView.getLocalizedMessage(i18nId);
       String msg = sessionView.getLocalizedMessage("message_failed_to_save", i18nElement, ExceptionUtils.getRootCauseMessage(ex));
@@ -314,7 +345,7 @@ public abstract class AbstractStandardView<
    */
   @Override
   public void onRowUnselect(UnselectEvent<?> event) {
-    // nothing to do, just required to have UI updated   
+    // nothing to do, just required to have UI updated
   }
 
   /**
