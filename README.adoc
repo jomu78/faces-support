@@ -5,8 +5,8 @@ A Java library to simplify Primefaces based CRUD applications.
 [cols="3,4a,4a,4a,3", frame=none, grid=none]
 |===
 |
-| image::https://github.com/jomu78/faces-support/actions/workflows/maven.yml/badge.svg?branch=1.6.x[]
-| image::https://img.shields.io/maven-central/v/de.muehlencord.facessupport/faces-support[]
+| image::https://github.com/jomu78/faces-support/actions/workflows/maven.yml/badge.svg?branch=2.1.x[]
+| image::https://img.shields.io/maven-central/v/de.muehlencord.facessupport/faces-support-lib[]
 | image::https://img.shields.io/github/license/jomu78/faces-support[]
 |
 |===
