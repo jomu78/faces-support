@@ -27,6 +27,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.function.Function;
 import org.joinfaces.primefaces.SpringDataJpaLazyDataModel;
+import org.jspecify.annotations.NonNull;
 import org.primefaces.model.FilterMeta;
 import org.primefaces.model.SortMeta;
 import org.primefaces.model.SortOrder;
@@ -34,7 +35,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
-import org.springframework.lang.NonNull;
 import org.springframework.util.CollectionUtils;
 
 /**
