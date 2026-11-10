@@ -79,7 +79,7 @@
     <primefaces.version>15.0.19</primefaces.version>
 
     <!-- overwrite dependencies manged parent -->
-    <commons-lang3.version>3.20.0</commons-lang3.version>
+    <commons-lang3.version>3.21.0</commons-lang3.version>
 
     <!-- plugin versions -->
     <jacoco-maven-plugin.version>0.8.16</jacoco-maven-plugin.version>
