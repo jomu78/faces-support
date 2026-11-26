@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>4.1.2</version>
+    <version>4.1.3</version>
     <relativePath />
     <!-- lookup parent from repository -->
   </parent>
@@ -75,7 +75,7 @@
 
     <!-- dependency versions -->
     <spring-boot.version>4.1.2</spring-boot.version>
-    <joinfaces.version>6.1.2</joinfaces.version>
+    <joinfaces.version>6.1.3</joinfaces.version>
     <primefaces.version>15.0.19</primefaces.version>
 
     <!-- overwrite dependencies manged parent -->
