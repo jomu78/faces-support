@@ -74,12 +74,11 @@
     </sonar.coverage.jacoco.xmlReportPaths>
 
     <!-- dependency versions -->
-    <spring-boot.version>4.1.2</spring-boot.version>
     <joinfaces.version>6.1.3</joinfaces.version>
-    <primefaces.version>15.0.19</primefaces.version>
+    <primefaces.version>15.0.20</primefaces.version>
 
     <!-- overwrite dependencies manged parent -->
-    <commons-lang3.version>3.21.0</commons-lang3.version>
+    <commons-lang3.version>3.22.0</commons-lang3.version>
 
     <!-- plugin versions -->
     <jacoco-maven-plugin.version>0.8.16</jacoco-maven-plugin.version>
@@ -116,17 +115,17 @@
           <version>${maven-compiler-plugin.version}</version>
           <configuration>
             <showDeprecation>true</showDeprecation>
+            <!-- resolve processor versions from dependencyManagement (Spring Boot parent) -->
+            <annotationProcessorPathsUseDepMgmt>true</annotationProcessorPathsUseDepMgmt>
             <annotationProcessorPaths>
               <path>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
               </path>
               <!-- spring boot after lombok -->
               <path>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-configuration-processor</artifactId>
-                <version>${spring-boot.version}</version>
               </path>
             </annotationProcessorPaths>
           </configuration>
